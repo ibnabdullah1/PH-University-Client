@@ -1,6 +1,8 @@
 import { Layout, Menu } from "antd";
 import { Outlet } from "react-router-dom";
 import { adminSidebarItems } from "../../routes/admin.routes";
+import { facultySidebarItems } from "../../routes/faculty.routes";
+import { studentSidebarItems } from "../../routes/student.routes";
 const { Header, Content, Footer, Sider } = Layout;
 
 const MainLayout = () => {
@@ -32,6 +34,18 @@ const MainLayout = () => {
           mode="inline"
           defaultSelectedKeys={["4"]}
           items={adminSidebarItems}
+        />
+        <Menu
+          theme="dark"
+          mode="inline"
+          defaultSelectedKeys={["4"]}
+          items={facultySidebarItems}
+        />
+        <Menu
+          theme="dark"
+          mode="inline"
+          defaultSelectedKeys={["4"]}
+          items={studentSidebarItems}
         />
       </Sider>
       <Layout>
