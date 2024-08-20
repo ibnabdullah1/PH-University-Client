@@ -16,7 +16,6 @@ const AcademicSemester = () => {
     isLoading,
     isFetching,
   } = useGetAllSemestersQuery(params);
-
   const tableData = semesterData?.data?.map(
     ({ _id, name, startMonth, endMonth, year }) => ({
       key: _id,
@@ -42,8 +41,8 @@ const AcademicSemester = () => {
           value: "Fall",
         },
         {
-          text: "Summer",
-          value: "Summer",
+          text: "Summar",
+          value: "Summar",
         },
       ],
     },
@@ -105,7 +104,7 @@ const AcademicSemester = () => {
       filters.year?.forEach((item) =>
         queryParams.push({ name: "year", value: item })
       );
-
+      console.log(queryParams);
       setParams(queryParams);
     }
   };
