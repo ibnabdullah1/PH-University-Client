@@ -1,5 +1,5 @@
 import { Button, Table, TableColumnsType } from "antd";
-import { useGetAllFacultiesQuery } from "../../../redux/features/admin/academicManagement.api";
+import { useGetAcademicFacultiesQuery } from "../../../redux/features/admin/academicManagement.api";
 import { TAcademicFaculty } from "../../../types/academicManagement.type";
 
 export type TTableData = {
@@ -8,7 +8,8 @@ export type TTableData = {
 };
 
 const AcademicFaculty = () => {
-  const { data: facultyData, isFetching } = useGetAllFacultiesQuery(undefined);
+  const { data: facultyData, isFetching } =
+    useGetAcademicFacultiesQuery(undefined);
 
   const tableData: TTableData[] =
     facultyData?.data?.map(({ _id, name }: TAcademicFaculty) => ({
