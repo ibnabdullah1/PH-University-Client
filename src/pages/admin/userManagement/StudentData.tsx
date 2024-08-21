@@ -1,4 +1,11 @@
-import { Button, Space, Table, TableColumnsType, TableProps } from "antd";
+import {
+  Button,
+  Pagination,
+  Space,
+  Table,
+  TableColumnsType,
+  TableProps,
+} from "antd";
 import { useState } from "react";
 import { useGetAllStudentsQuery } from "../../../redux/features/admin/userManagement.api";
 import { TStudent } from "../../../types";
@@ -11,7 +18,7 @@ const StudentData = () => {
   const [page, setPage] = useState(1);
   const {
     data: studentData,
-    isLoading,
+
     isFetching,
   } = useGetAllStudentsQuery([
     { name: "limit", value: 3 },
@@ -70,9 +77,6 @@ const StudentData = () => {
         queryParams.push({ name: "name", value: item })
       );
 
-      filters.year?.forEach((item) =>
-        queryParams.push({ name: "year", value: item })
-      );
       setParams(queryParams);
     }
   };
@@ -84,13 +88,14 @@ const StudentData = () => {
         columns={columns}
         dataSource={tableData}
         onChange={onChange}
+        pagination={false}
       />
-      {/* <Pagination
+      <Pagination
         current={page}
         onChange={(value) => setPage(value)}
         pageSize={metaData?.limit}
         total={metaData?.total}
-      /> */}
+      />
     </>
   );
 };
