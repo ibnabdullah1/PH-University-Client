@@ -9,7 +9,7 @@ import {
   useGetAcademicDepartmentsQuery,
   useGetAllSemestersQuery,
 } from "../../../redux/features/admin/academicManagement.api";
-import { useAddStudentMutation } from "../../../redux/features/admin/userManagement";
+import { useAddStudentMutation } from "../../../redux/features/admin/userManagement.api";
 
 const studentDummyData = {
   password: "student123",
